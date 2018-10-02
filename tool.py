@@ -11,7 +11,7 @@ class Processor:
     #通过路径读取图片
     def readImage(self, path):
         img = Image.open(path)
-        return ImageTk.PhotoImage(img)
+        return img.size, ImageTk.PhotoImage(img)
 
     #通过路径解析XML,返回字典
     def readXml(self, path):
