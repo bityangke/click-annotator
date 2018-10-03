@@ -82,7 +82,12 @@ class Application:
     def onClick(self, event):
         sx, ex = event.x - 3, event.x + 3
         sy, ey = event.y - 3, event.y + 3
-        self.panel.create_oval(sx,sy,ex, ey, fill = "yellow", tags = "oval")
+        self.oval = self.panel.create_oval(sx,sy,ex, ey, fill = "yellow",
+                                           tags="ovals")
+        self.app.after(500, self.deleteOvals)
+
+    def deleteOvals(self):
+        self.panel.delete("ovals")
 
     #加载图片
     def loadImage(self):
